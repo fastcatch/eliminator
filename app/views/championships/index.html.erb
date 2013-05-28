@@ -1,0 +1,27 @@
+<h1>My Championships</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>No. of Players</th>
+      <th>Matches (Total/Played)</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @championships.each do |championship| %>
+      <tr>
+        <td><%= link_to championship.title, edit_championship_path(championship) %></td>
+        <td><%= championship.players.count %></td>
+        <td><%= championship.matches.count %> / <%= championship.matches.keep_if{|m| m.played?}.count %></td>
+        <td>
+          <%= link_to 'View link', championship_path(championship), :class => 'btn btn-mini', title: "Share this with others so that they can see but not edit the championship" %>
+          <%= link_to 'Destroy', championship_path(championship), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_championship_path, :class => 'btn btn-primary' %>
+

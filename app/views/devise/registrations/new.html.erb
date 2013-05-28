@@ -1,0 +1,29 @@
+<div id="signup_form" class="modal hide fade in">
+  <div class="modal-header">
+    <h3>You're about to sign up</h3>
+  </div>
+  <%= simple_form_for(resource, :as => resource_name, url: user_registration_path, :html => {:class => 'form-horizontal'}) do |f| %>
+    <div class="modal-body">
+      <%= f.input :email, required: true, autofocus: true, hint:
+         %Q{ It's for identification only.
+              <p><small>We respect your privacy.
+                We promise not to send you mails<br />(except maybe Eliminator-related info once a while).<br />
+                We do not even confirm your address. Fake it if you want but please note that you need a valid address here to be able to reset your password later.
+              </small></p>
+          } %>
+      <%= f.input :password, required: true %>
+      <%= f.input :remember_me, as: :boolean %>
+    </div>
+    <div class="modal-footer">
+      <%= f.button :submit, 'Sign me up', class: 'btn btn-primary' %>
+      <%= link_to "Cancel", root_path, class: "btn" %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+  <% end -%>
+</div>
+
+<script type="text/javascript">
+// Open form right away
+$('#signup_form').modal('show');
+</script>

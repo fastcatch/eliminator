@@ -1,0 +1,21 @@
+<% match = defined?(form) ? form : @match %>
+<%= form_for [match.championship, match] do |f| %>
+  <div>
+    <%= f.text_field :start_time, placeholder: 'Start time', disabled: f.object.played?, class: 'datetimepicker' %>
+    <%= f.text_field :location, placeholder: 'Location', disabled: f.object.played? %>
+    <% possible_winners = winners_collection(f.object) %>
+    <fieldset>
+      <% possible_winners.each do |player_info| %>
+        <% player_name, player_id, is_selected  = player_info %>
+        <%= f.radio_button :winner, player_id, checked: is_selected  -%>
+        <span class='winner-selector-name'><%= player_name %></span><br />
+      <% end -%>
+    </fieldset>
+    <%= f.text_field :result, placeholder: 'Result', disabled: (possible_winners.size == 1) %>
+  </div>
+
+  <div>
+    <%= submit_tag 'Update', class: 'btn btn-primary' %>
+    <button class="btn js-dismiss-popover" type="button">Cancel</button>
+  </div>
+<% end -%>

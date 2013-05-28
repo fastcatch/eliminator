@@ -1,0 +1,11 @@
+<h1>
+  <%= content_tag :span, @championship.title,
+          class: 'js-x-editable',
+          'data-name' => 'title',
+          'data-type' => "text",
+          'data-pk' => @championship.id,
+          'data-url' => championship_url(@championship),
+          'data-mode' => 'inline'
+           %>
+</h1>
+<%= render partial: 'championships/tree' %>

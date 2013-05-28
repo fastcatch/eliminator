@@ -1,0 +1,125 @@
+// Place all the styles related to the Championships controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//
+// Applied from http://thecodeplayer.com/walkthrough/css3-family-tree
+// All credit and tribute is due to ruby_on_tails (http://twitter.com/ruby_on_tails)
+//
+
+.championship {
+
+  ul {
+    display: inline-block;
+    padding-right: 20px;
+    position: relative;
+
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+  }
+  li {
+    list-style-type: none;
+    position: relative;
+    padding: 5px 20px 5px 0;
+    display: table;
+    float: right;
+    clear: right;
+
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+  }
+
+  li::before, li::after {
+    content: '';
+    position: absolute; right: 0; bottom: 50%;
+    border-right: 1px solid #ccc;
+    height: 50%; width: 20px;
+  }
+
+  li::after{
+    bottom: auto; top: 50%;
+    border-top: 1px solid #ccc;
+  }
+
+  /*Remove connectors from elements without any siblings*/
+  li:only-child::after, li:only-child::before {
+    display: none;
+  }
+
+  /*Remove space from single children*/
+  li:only-child{ padding-right: 0;}
+
+  /*Remove left connector from first child and right connector from last child*/
+  li:first-child::before, li:last-child::after{
+    border: 0 none;
+  }
+  /*Adding back the horizontal connector to the last nodes */
+  li:last-child::after{
+    border-top: 1px solid #ccc;
+  }
+
+  /*Add connectors from parents*/
+  ul ul::before{
+    content: '';
+    position: absolute; right: 0; top: 50%;
+    border-top: 1px solid #ccc;
+    height: 0; width: 20px;
+  }
+
+  li a.tree{
+    text-decoration: none;
+    display: table-cell;
+    vertical-align: middle;
+    width: 120px;
+    height: 12px;
+
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+  }
+}
+
+.championship .valuebox {
+  width: 100px;
+  color: #666;
+  font-family: arial, verdana, tahoma;
+  font-size: 12px;
+  padding: 5px 10px;
+
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+
+  &:hover, &.highlight {
+    background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
+  }
+
+}
+
+.championship .player {
+  font-weight: bold;
+  text-align: right;
+}
+
+.championship .match {
+  .start_time, .location, .winner, .result {
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    whitespace: nowrap;
+  }
+  .start_time {
+    font-weight: bold;
+  }
+  .location {
+    font-style: italic;
+  }
+  .winner {
+    font-weight: bold;
+  }
+}
+

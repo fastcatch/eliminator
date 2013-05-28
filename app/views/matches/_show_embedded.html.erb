@@ -1,0 +1,38 @@
+<% match = defined?(show_embedded) ? show_embedded : @match -%>
+<% wrapper_html_classes = [:match, :valuebox, (match.needs_playing? ? :unplayed : :played)]  -%>
+
+<%
+  editable = defined?(editable) && editable
+  title = nil
+  if match.has_implicit_winner?
+    title = 'Wins without playing'
+  else
+    if match.needs_explicit_winner?
+      wrapper_html_classes << 'js-editable' if editable
+    end
+  end
+-%>
+
+<%= content_tag :div, class: wrapper_html_classes, title: title do %>
+  <% if match.relevant? %>
+    <% if match.needs_playing? && !match.played? -%>
+      <div class='start_time'>
+        <%= match.start_time ? h(match.start_time.strftime('%F %R')) : "" %>
+      </div>
+      <% if match.location.present? -%>
+        <div class='location'>
+          <%= match.location %>
+        </div>
+      <% end -%>
+    <% else -%>
+      <div class='winner'>
+        <%= match.explicit_or_implicit_winner.name if match.explicit_or_implicit_winner %>
+      </div>
+      <% if match.result.present? -%>
+        <div class='result'>
+          <%= match.result %>
+        </div>
+      <% end -%>
+    <% end -%>
+  <% end -%>
+<% end -%>

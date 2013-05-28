@@ -1,0 +1,31 @@
+player_1:
+  name: "Player 1"
+  championship: tournament
+
+player_2:
+  name: "Player 2"
+  championship: tournament
+
+player_3:
+  name: "Player 3"
+  championship: tournament
+
+player_4:
+  name: "Player 4"
+  championship: tournament
+
+player_5:
+  name: "Player 5"
+  championship: tournament
+
+player_6:
+  name: ""
+  championship: tournament
+
+player_7:
+  name: ""
+  championship: tournament
+
+player_8:
+  name: ""
+  championship: tournament

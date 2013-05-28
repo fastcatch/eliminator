@@ -1,0 +1,5 @@
+<% match = defined?(edit_embedded) ? edit_embedded : @match %>
+<%= render partial: 'matches/show_embedded', :object => match, locals: {editable: true} %>
+<div class='js-edit-form-container' style='display:none'>
+  <%= render partial: 'matches/form', object: match %>
+</div>

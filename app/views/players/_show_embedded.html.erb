@@ -1,0 +1,20 @@
+<% player = defined?(show_embedded) ? show_embedded : @player -%>
+<% wrapper_html_classes = [:player, :valuebox]  -%>
+
+<% editable = defined?(editable) && editable -%>
+<% if editable
+      wrapper_html_classes << 'js-x-editable'
+      x_editable_attributes = {
+        'data-name' => 'name',
+        'data-type' => "text",
+        'data-pk' => player.id,
+        'data-url' => championship_player_url(player.championship, player)
+      }
+   else
+      x_editable_attributes = {}
+  end
+-%>
+
+<%= content_tag :div, {class: wrapper_html_classes}.merge!(x_editable_attributes) do %>
+  <%= player.name.present? ? player.name : "-" %>
+<% end -%>

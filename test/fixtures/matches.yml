@@ -1,0 +1,30 @@
+final:
+  championship: tournament
+  start_time: 2013-05-07 20:19:25
+  location: Final location
+
+semifinal_1:
+  championship: tournament
+  start_time: 2013-05-07 20:19:25
+  location: Semi-Final 1 location
+
+semifinal_2:
+  championship: tournament
+  start_time: 2013-05-07 20:19:25
+  location: Semi-Final 2 location
+
+quarterfinal_1:
+  championship: tournament
+  start_time: 2013-05-07 20:19:25
+  location: Quarterfinal location
+  result: "1:0"
+  winner: player_2
+
+quarterfinal_2:
+  championship: tournament
+
+quarterfinal_3:
+  championship: tournament
+
+quarterfinal_4:
+  championship: tournament

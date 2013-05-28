@@ -1,0 +1,2 @@
+<% player = defined?(edit_embedded) ? edit_embedded : @player %>
+<%= render partial: 'players/show_embedded', :object => player, locals: {editable: true} %>

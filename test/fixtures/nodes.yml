@@ -1,0 +1,76 @@
+node_final:
+  championship: tournament
+  parent:
+  content: final (Match)
+
+
+node_semifinal_1:
+  championship: tournament
+  parent: node_final
+  content: semifinal_1 (Match)
+
+node_quarterfinal_1:
+  championship: tournament
+  parent: node_semifinal_1
+  content: quarterfinal_1 (Match)
+
+node_quarterfinal_2:
+  championship: tournament
+  parent: node_semifinal_1
+  content: quarterfinal_2 (Match)
+
+node_player_1:
+  championship: tournament
+  parent: node_quarterfinal_1
+  content: player_1 (Player)
+
+node_player_2:
+  championship: tournament
+  parent: node_quarterfinal_1
+  content: player_2 (Player)
+
+node_player_3:
+  championship: tournament
+  parent: node_quarterfinal_2
+  content: player_3 (Player)
+
+node_player_4:
+  championship: tournament
+  parent: node_quarterfinal_2
+  content: player_4 (Player)
+
+
+node_semifinal_2:
+  championship: tournament
+  parent: node_final
+  content: semifinal_2 (Match)
+
+node_quarterfinal_3:
+  championship: tournament
+  parent: node_semifinal_2
+  content: quarterfinal_3 (Match)
+
+node_quarterfinal_4:
+  championship: tournament
+  parent: node_semifinal_2
+  content: quarterfinal_4 (Match)
+
+node_player_5:
+  championship: tournament
+  parent: node_quarterfinal_3
+  content: player_5 (Player)
+
+node_player_6:
+  championship: tournament
+  parent: node_quarterfinal_3
+  content: player_6 (Player)
+
+node_player_7:
+  championship: tournament
+  parent: node_quarterfinal_4
+  content: player_7 (Player)
+
+node_player_8:
+  championship: tournament
+  parent: node_quarterfinal_4
+  content: player_8 (Player)

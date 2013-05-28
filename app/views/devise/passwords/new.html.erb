@@ -1,0 +1,21 @@
+<div id="reset_password_form" class="modal hide fade in">
+  <div class="modal-header">
+    <h3>Forgot your password?</h3>
+  </div>
+  <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => {:class => 'form-horizontal' }) do |f| %>
+    <div class="modal-body">
+      <%= f.input :email, required: true, autofocus: true %>
+    </div>
+    <div class="modal-footer">
+      <%= f.button :submit, "Send me reset password instructions", class: 'btn btn-primary' %>
+      <%= link_to "Cancel", root_path, class: "btn" %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+  <% end -%>
+</div>
+
+<script type="text/javascript">
+// Open form right away
+$('#reset_password_form').modal('show');
+</script>

@@ -1,0 +1,22 @@
+<div id="championship_form" class="modal hide fade in">
+  <div class="modal-header">
+    <h3><%= controller.action_name.capitalize %> Championship</h3>
+  </div>
+  <%= simple_form_for @championship, html: { class: 'form-horizontal' } do |f| %>
+    <div class="modal-body">
+      <%= f.error_notification %>
+      <%= f.input :title %>
+      <%= f.input :number_of_players, collection: 2..128, required: true, include_blank: false %>
+    </div>
+    <div class="modal-footer">
+      <%= f.button :submit, class: 'btn btn-primary' %>
+      <%= link_to 'Cancel', championships_path, :class => 'btn' %>
+
+    </div>
+  <% end -%>
+</div>
+
+<script type="text/javascript">
+// Open form right away
+$('#championship_form').modal('show');
+</script>
