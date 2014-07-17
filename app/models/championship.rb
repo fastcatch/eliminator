@@ -15,7 +15,7 @@ class Championship < ActiveRecord::Base
   end
 
   before_validation :round_up_players!
-  after_save :setup_board, on: :create
+  after_create :setup_board
 
   # handle to the root of the elimniation tree
   def board
